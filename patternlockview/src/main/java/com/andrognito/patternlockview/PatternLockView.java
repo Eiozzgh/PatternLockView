@@ -125,6 +125,8 @@ public class PatternLockView extends View {
     private int mDotAnimationDuration;
     private int mPathEndAnimationDuration;
 
+    private boolean mDotAnimEnable;
+
     private Paint mDotPaint;
     private Paint mPathPaint;
 
@@ -191,6 +193,8 @@ public class PatternLockView extends View {
                     DEFAULT_DOT_ANIMATION_DURATION);
             mPathEndAnimationDuration = typedArray.getInt(R.styleable.PatternLockView_pathEndAnimationDuration,
                     DEFAULT_PATH_END_ANIMATION_DURATION);
+            mDotAnimEnable = typedArray.getBoolean(R.styleable.PatternLockView_dotAnimEnable,
+                    true);
         } finally {
             typedArray.recycle();
         }
@@ -649,6 +653,10 @@ public class PatternLockView extends View {
         mPathEndAnimationDuration = pathEndAnimationDuration;
     }
 
+    public void setDotAnimEnable(boolean dotAnimEnable) {
+        mDotAnimEnable = mDotAnimEnable;
+    }
+
     /**
      * Set whether the View is in stealth mode. If {@code true}, there will be
      * no visible feedback (path drawing, dot animating, etc) as the user enters the pattern
@@ -828,18 +836,19 @@ public class PatternLockView extends View {
     }
 
     private void startDotSelectedAnimation(Dot dot) {
-        final DotState dotState = mDotStates[dot.mRow][dot.mColumn];
-        startSizeAnimation(mDotNormalSize, mDotSelectedSize, mDotAnimationDuration,
-                mLinearOutSlowInInterpolator, dotState, new Runnable() {
-
-                    @Override
-                    public void run() {
-                        startSizeAnimation(mDotSelectedSize, mDotNormalSize, mDotAnimationDuration,
-                                mFastOutSlowInInterpolator, dotState, null);
-                    }
-                });
-        startLineEndAnimation(dotState, mInProgressX, mInProgressY,
-                getCenterXForColumn(dot.mColumn), getCenterYForRow(dot.mRow));
+        if(mDotAnimEnable) {
+            final DotState dotState = mDotStates[dot.mRow][dot.mColumn];
+            startSizeAnimation(mDotNormalSize, mDotSelectedSize, mDotAnimationDuration,
+                    mLinearOutSlowInInterpolator, dotState, new Runnable() {
+                        @Override
+                        public void run() {
+                            startSizeAnimation(mDotSelectedSize, mDotNormalSize, mDotAnimationDuration,
+                                    mFastOutSlowInInterpolator, dotState, null);
+                        }
+                    });
+            startLineEndAnimation(dotState, mInProgressX, mInProgressY,
+                    getCenterXForColumn(dot.mColumn), getCenterYForRow(dot.mRow));
+        }
     }
 
     private void startLineEndAnimation(final DotState state,

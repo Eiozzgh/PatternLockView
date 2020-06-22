@@ -39,6 +39,7 @@
         app:dotAnimationDuration="150"
         app:dotCount="3"
         app:correctStateColor="@android:color/holo_blue_light"
-        app:wrongStateColor="@android:color/holo_red_light"/>
+        app:wrongStateColor="@android:color/holo_red_light"
+        app:dotAnimEnable="false"/>
 
 </LinearLayout>
