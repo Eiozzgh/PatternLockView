@@ -43,6 +43,7 @@
         app:dotAnimationDuration="150"
         app:correctStateColor="@android:color/holo_blue_light"
         app:wrongStateColor="@android:color/holo_red_light"
+        app:dotStrokeEnable="true"
         app:dotAnimEnable="false"
         app:directionEnable="true"/>
 

@@ -126,6 +126,7 @@ public class PatternLockView extends View {
     private int mDotAnimationDuration;
     private int mPathEndAnimationDuration;
 
+    private boolean mDotStrokeEnable;
     private boolean mDotAnimEnable;
     private boolean mDirectionEnable;
 
@@ -196,6 +197,8 @@ public class PatternLockView extends View {
                     DEFAULT_DOT_ANIMATION_DURATION);
             mPathEndAnimationDuration = typedArray.getInt(R.styleable.PatternLockView_pathEndAnimationDuration,
                     DEFAULT_PATH_END_ANIMATION_DURATION);
+            mDotStrokeEnable = typedArray.getBoolean(R.styleable.PatternLockView_dotStrokeEnable,
+                    false);
             mDotAnimEnable = typedArray.getBoolean(R.styleable.PatternLockView_dotAnimEnable,
                     true);
             mDirectionEnable = typedArray.getBoolean(R.styleable.PatternLockView_directionEnable,
@@ -658,8 +661,16 @@ public class PatternLockView extends View {
         mPathEndAnimationDuration = pathEndAnimationDuration;
     }
 
+    public void setDotStrokeEnable(boolean dotStrokeEnable) {
+        mDotStrokeEnable = dotStrokeEnable;
+    }
+
     public void setDotAnimEnable(boolean dotAnimEnable) {
-        mDotAnimEnable = mDotAnimEnable;
+        mDotAnimEnable = dotAnimEnable;
+    }
+
+    public void setDirectionEnable(boolean directionEnable) {
+        mDirectionEnable = directionEnable;
     }
 
     /**

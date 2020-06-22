@@ -17,6 +17,7 @@
         <attr name="wrongStateColor" format="color"/>
         <attr name="dotAnimationDuration" format="integer"/>
         <attr name="pathEndAnimationDuration" format="integer"/>
+        <attr name="dotStrokeEnable" format="boolean"/>
         <attr name="dotAnimEnable" format="boolean"/>
         <attr name="directionEnable" format="boolean"/>
     </declare-styleable>

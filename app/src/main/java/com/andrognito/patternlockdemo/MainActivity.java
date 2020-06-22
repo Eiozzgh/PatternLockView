@@ -9,7 +9,6 @@ import android.view.WindowManager;
 import com.andrognito.patternlockview.PatternLockView;
 import com.andrognito.patternlockview.listener.PatternLockViewListener;
 import com.andrognito.patternlockview.utils.PatternLockUtils;
-import com.andrognito.patternlockview.utils.ResourceUtils;
 import com.andrognito.rxpatternlockview.RxPatternLockView;
 import com.andrognito.rxpatternlockview.events.PatternLockCompleteEvent;
 import com.andrognito.rxpatternlockview.events.PatternLockCompoundEvent;
@@ -55,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mPatternLockView = (PatternLockView) findViewById(R.id.patter_lock_view);
-        mPatternLockView.setDotCount(3);
-        mPatternLockView.setDotNormalSize((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_dot_size));
-        mPatternLockView.setDotSelectedSize((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_dot_selected_size));
-        mPatternLockView.setPathWidth((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_path_width));
+        // mPatternLockView.setDotCount(3);
+        // mPatternLockView.setDotNormalSize((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_dot_size));
+        // mPatternLockView.setDotSelectedSize((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_dot_selected_size));
+        // mPatternLockView.setPathWidth((int) ResourceUtils.getDimensionInPx(this, R.dimen.pattern_lock_path_width));
         mPatternLockView.setAspectRatioEnabled(true);
         mPatternLockView.setAspectRatio(PatternLockView.AspectRatio.ASPECT_RATIO_HEIGHT_BIAS);
         mPatternLockView.setViewMode(PatternLockView.PatternViewMode.CORRECT);
