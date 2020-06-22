@@ -1123,7 +1123,8 @@ public class PatternLockView extends View {
     }
 
     private int getCurrentColor(boolean partOfPattern) {
-        if (!partOfPattern || mInStealthMode || mPatternInProgress) {
+        // if (!partOfPattern || mInStealthMode || mPatternInProgress) {
+        if (!partOfPattern || mInStealthMode) {
             return mNormalStateColor;
         } else if (mPatternViewMode == WRONG) {
             return mWrongStateColor;

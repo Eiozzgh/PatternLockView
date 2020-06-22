@@ -1,0 +1,9 @@
+app/build
+patternlockview/build
+patternlockview-reactive/build
+*/**/*.iml
+.idea/
+.gradle/
+build/
+/PatternLockView.iml
+/local.properties
