@@ -122,10 +122,12 @@ public class PatternLockView extends View {
     private int mPathWidth;
     private int mDotNormalSize;
     private int mDotSelectedSize;
+    private int mDotStrokeSize;
     private int mDotAnimationDuration;
     private int mPathEndAnimationDuration;
 
     private boolean mDotAnimEnable;
+    private boolean mDirectionEnable;
 
     private Paint mDotPaint;
     private Paint mPathPaint;
@@ -186,8 +188,9 @@ public class PatternLockView extends View {
                     ResourceUtils.getColor(getContext(), R.color.pomegranate));
             mDotNormalSize = (int) typedArray.getDimension(R.styleable.PatternLockView_dotNormalSize,
                     ResourceUtils.getDimensionInPx(getContext(), R.dimen.pattern_lock_dot_size));
-            mDotSelectedSize = (int) typedArray.getDimension(R.styleable
-                            .PatternLockView_dotSelectedSize,
+            mDotSelectedSize = (int) typedArray.getDimension(R.styleable.PatternLockView_dotSelectedSize,
+                    ResourceUtils.getDimensionInPx(getContext(), R.dimen.pattern_lock_dot_selected_size));
+            mDotStrokeSize = (int) typedArray.getDimension(R.styleable.PatternLockView_dotStrokeSize,
                     ResourceUtils.getDimensionInPx(getContext(), R.dimen.pattern_lock_dot_selected_size));
             mDotAnimationDuration = typedArray.getInt(R.styleable.PatternLockView_dotAnimationDuration,
                     DEFAULT_DOT_ANIMATION_DURATION);
@@ -195,6 +198,8 @@ public class PatternLockView extends View {
                     DEFAULT_PATH_END_ANIMATION_DURATION);
             mDotAnimEnable = typedArray.getBoolean(R.styleable.PatternLockView_dotAnimEnable,
                     true);
+            mDirectionEnable = typedArray.getBoolean(R.styleable.PatternLockView_directionEnable,
+                    false);
         } finally {
             typedArray.recycle();
         }

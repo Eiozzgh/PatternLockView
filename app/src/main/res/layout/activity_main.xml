@@ -34,12 +34,16 @@
         android:layout_height="280dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
+        app:dotCount="3"
+        app:dotNormalSize="20dp"
+        app:dotStrokeSize="60dp"
+        app:pathWidth="1dp"
         app:aspectRatio="square"
         app:aspectRatioEnabled="true"
         app:dotAnimationDuration="150"
-        app:dotCount="3"
         app:correctStateColor="@android:color/holo_blue_light"
         app:wrongStateColor="@android:color/holo_red_light"
-        app:dotAnimEnable="false"/>
+        app:dotAnimEnable="false"
+        app:directionEnable="true"/>
 
 </LinearLayout>
