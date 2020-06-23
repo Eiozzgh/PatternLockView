@@ -132,6 +132,8 @@ public class PatternLockView extends View {
 
     private Paint mDotPaint;
     private Paint mPathPaint;
+    private Paint mStrokePaint;
+    private Paint mDirectPaint;
 
     private List<PatternLockViewListener> mPatternListeners;
     // The pattern represented as a list of connected {@link Dot}
@@ -240,6 +242,19 @@ public class PatternLockView extends View {
         mDotPaint = new Paint();
         mDotPaint.setAntiAlias(true);
         mDotPaint.setDither(true);
+
+        mStrokePaint = new Paint();
+        mStrokePaint.setAntiAlias(true);
+        mStrokePaint.setDither(true);
+        mStrokePaint.setColor(mCorrectStateColor);
+        mStrokePaint.setStyle(Paint.Style.STROKE);
+        mStrokePaint.setStrokeWidth(mPathWidth);
+
+        mDirectPaint = new Paint();
+        mStrokePaint.setAntiAlias(true);
+        mStrokePaint.setDither(true);
+        mStrokePaint.setColor(mCorrectStateColor);
+        mStrokePaint.setStyle(Paint.Style.FILL);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
                 && !isInEditMode()) {
